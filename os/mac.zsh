@@ -1,6 +1,12 @@
 # Homebrew (sets PATH, MANPATH, INFOPATH)
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# yubikey-agent SSH socket
+export SSH_AUTH_SOCK="$(brew --prefix)/var/run/yubikey-agent.sock"
+
+# opencode (user-local mac install)
+export PATH="$HOME/.opencode/bin:$PATH"
+
 # System away commands
 export SYS_LOCK="pmset displaysleepnow"
 export SYS_SLEEP="pmset sleepnow"

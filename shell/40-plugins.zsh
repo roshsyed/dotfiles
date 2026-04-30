@@ -1,3 +1,7 @@
+if [[ ! -f "$ZPLUG_HOME/init.zsh" ]]; then
+  echo "zplug not found at $ZPLUG_HOME — skipping plugins" >&2
+  return 0
+fi
 source "$ZPLUG_HOME/init.zsh"
 
 # OMZ core libs first (needed for async, handlers, etc.)

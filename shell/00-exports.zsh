@@ -1,3 +1,5 @@
+export PATH="$HOME/.local/bin:$PATH"
+
 export LOCAL_CONFIG="$HOME/.config"
 export EDITOR_CONFIG="$LOCAL_CONFIG/nvim/lua"
 

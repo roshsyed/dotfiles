@@ -20,5 +20,4 @@ done
 [[ -f "$HOME/.local/bin/env" ]] && . "$HOME/.local/bin/env"
 
 # === SCRATCH (refactor me) ===
-
 # === END SCRATCH ===

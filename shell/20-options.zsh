@@ -1,4 +1,4 @@
-setopt histignorealldups sharehistory
+setopt histignorealldups sharehistory auto_cd
 
 HISTSIZE=50000
 SAVEHIST=50000

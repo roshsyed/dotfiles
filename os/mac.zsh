@@ -13,6 +13,8 @@ export SYS_SLEEP="pmset sleepnow"
 
 # OS-specific configs
 export TERM_CONFIG="$HOME/.config/ghostty/config"
+export COMPOSITOR_CONFIG="$HOME/.aerospace.toml"
+export COMPOSITOR_RELOAD="aerospace reload-config"
 
 # zplug install location
 export ZPLUG_HOME="/opt/homebrew/opt/zplug"

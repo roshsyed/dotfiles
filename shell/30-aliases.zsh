@@ -3,6 +3,11 @@ alias ec="$EDITOR \$HOME/.zshrc"
 alias ect="$EDITOR \$TERM_CONFIG"
 alias ece="$EDITOR \$EDITOR_CONFIG"
 [[ -n "$COMPOSITOR_CONFIG" ]] && alias ecc="$EDITOR \$COMPOSITOR_CONFIG"
+[[ -n "$COMPOSITOR_RELOAD" ]] && alias rcc="$COMPOSITOR_RELOAD"
+alias ecg="$EDITOR \$HOME/.gitconfig"
+alias ecs="$EDITOR \$HOME/.ssh/config"
+alias eca="$EDITOR \$HOME/.config/dotfiles/AGENTS.md"
+alias ech="sudoedit /etc/hosts"
 
 # Start apps (only alias if OS provided the var)
 [[ -n "$PWD_MGR_START" ]]     && alias pm="$PWD_MGR_START"
@@ -21,3 +26,7 @@ alias vim='$EDITOR'
 alias info="info --vi-keys"
 alias nocomment='grep -Ev "^\s*(#|;|$)"'
 alias k="kubectl"
+alias dotfiles="cd \$HOME/.config/dotfiles"
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'

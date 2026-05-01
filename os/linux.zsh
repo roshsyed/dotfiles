@@ -12,6 +12,7 @@ export SYS_SLEEP="systemctl suspend"
 # OS-specific configs
 export TERM_CONFIG="$HOME/.config/foot/foot.ini"
 export COMPOSITOR_CONFIG="$HOME/.config/sway/config"
+export COMPOSITOR_RELOAD="swaymsg reload"
 
 # zplug install location
 export ZPLUG_HOME="/usr/share/zplug"

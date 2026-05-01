@@ -1,0 +1,23 @@
+font-family = FiraCode Nerd Font
+font-size = 16
+
+theme = tokyonight
+
+cursor-style = block
+cursor-style-blink = false
+
+shell-integration = zsh
+shell-integration-features = cursor,sudo,title
+
+copy-on-select = false
+confirm-close-surface = false
+
+window-padding-x = 8
+window-padding-y = 8
+
+macos-option-as-alt = false
+
+mouse-hide-while-typing = true
+
+clipboard-read = allow
+clipboard-write = allow

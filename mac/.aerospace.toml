@@ -1,0 +1,75 @@
+config-version = 2
+
+start-at-login = true
+default-root-container-layout = 'tiles'
+
+# Keep ws 1-10 alive even when empty
+persistent-workspaces = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+
+# Slack always lands on ws 1 regardless of launch context.
+# Only fires on new windows, not on aerospace restart.
+[[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmacgap'
+if.during-aerospace-startup = false
+run = 'move-node-to-workspace 1'
+
+[mode.main.binding]
+# Terminal (alt = super)
+alt-enter = '''exec-and-forget osascript -e 'tell application "Ghostty" to activate' -e 'tell application "Ghostty" to make new window' '''
+
+# Focus
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
+
+# Move window
+alt-shift-h = 'move left'
+alt-shift-j = 'move down'
+alt-shift-k = 'move up'
+alt-shift-l = 'move right'
+
+alt-left  = 'move left'
+alt-down  = 'move down'
+alt-up    = 'move up'
+alt-right = 'move right'
+
+# Close window (i3 $mod+Shift+q)
+alt-shift-q = 'close'
+
+# Workspaces 1-10 (key 0 -> ws 10, sway parity)
+alt-1 = 'workspace 1'
+alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
+alt-5 = 'workspace 5'
+alt-6 = 'workspace 6'
+alt-7 = 'workspace 7'
+alt-8 = 'workspace 8'
+alt-9 = 'workspace 9'
+alt-0 = 'workspace 10'
+
+alt-shift-1 = 'move-node-to-workspace 1'
+alt-shift-2 = 'move-node-to-workspace 2'
+alt-shift-3 = 'move-node-to-workspace 3'
+alt-shift-4 = 'move-node-to-workspace 4'
+alt-shift-5 = 'move-node-to-workspace 5'
+alt-shift-6 = 'move-node-to-workspace 6'
+alt-shift-7 = 'move-node-to-workspace 7'
+alt-shift-8 = 'move-node-to-workspace 8'
+alt-shift-9 = 'move-node-to-workspace 9'
+alt-shift-0 = 'move-node-to-workspace 10'
+
+# App bindings:
+#   alt-<key>       = focus existing OR switch to home ws + launch
+#   alt-shift-<key> = always launch new window in CURRENT workspace
+#
+# Slack: bundle-id-anywhere check (handles manual ws relocation).
+# Chrome variants: workspace-presence check on home ws (ws8 normal, ws10 incognito).
+alt-s = 'exec-and-forget ~/.config/aerospace/focus-or-launch.sh com.tinyspeck.slackmacgap 1 open -a Slack'
+alt-b = '''exec-and-forget ~/.config/aerospace/focus-ws-or-launch.sh 8 open -a "Google Chrome"'''
+alt-p = 'exec-and-forget ~/.config/aerospace/focus-ws-or-launch.sh 10 ~/.config/aerospace/new-chrome-incognito.sh'
+
+# Force-new window in current workspace (no ws switch)
+alt-shift-b = 'exec-and-forget ~/.config/aerospace/new-chrome.sh'
+alt-shift-p = 'exec-and-forget ~/.config/aerospace/new-chrome-incognito.sh'

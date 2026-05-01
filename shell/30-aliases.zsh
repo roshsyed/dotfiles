@@ -26,6 +26,7 @@ alias vim='$EDITOR'
 alias info="info --vi-keys"
 alias nocomment='grep -Ev "^\s*(#|;|$)"'
 alias k="kubectl"
+alias zsh-plugins-update='for d in ${ZSH_PLUGIN_DIR:-$HOME/.local/share/zsh/plugins}/*/; do echo "Updating ${d:t}..."; git -C "$d" pull --quiet --ff-only || echo "  failed"; done'
 alias dotfiles="cd \$HOME/.config/dotfiles"
 alias ..='cd ..'
 alias ...='cd ../..'

@@ -32,15 +32,21 @@ mkdir -p "${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 compinit -d "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
 
 # OMZ core libs (async, handlers, key-bindings, theme-and-appearance, ...)
-for f in "$ZSH/lib/"*.zsh; do
-  source "$f"
-done
+# Wrapped in anon fn so `local` declarations inside libs (e.g. lib/git.zsh's
+# `local _style`) stay scoped and don't leak/print on re-source.
+() {
+  for f in "$ZSH/lib/"*.zsh; do
+    source "$f"
+  done
+}
 
 # OMZ plugins: shared + OS-specific (OS file populates OS_OMZ_PLUGINS)
 typeset -ga _omz_plugins=(git sudo ${OS_OMZ_PLUGINS[@]})
-for p in "${_omz_plugins[@]}"; do
-  [[ -f "$ZSH/plugins/$p/$p.plugin.zsh" ]] && source "$ZSH/plugins/$p/$p.plugin.zsh"
-done
+() {
+  for p in "${_omz_plugins[@]}"; do
+    [[ -f "$ZSH/plugins/$p/$p.plugin.zsh" ]] && source "$ZSH/plugins/$p/$p.plugin.zsh"
+  done
+}
 
 # Theme
 source "$ZSH_PLUGIN_DIR/aphrodite-terminal-theme/aphrodite.zsh-theme"

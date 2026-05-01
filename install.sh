@@ -18,6 +18,10 @@ link_file() {
 
     mkdir -p "$(dirname "$dest")"
 
+    if [ -L "$dest" ] && [ "$(readlink "$dest")" = "$src" ]; then
+        return 0
+    fi
+
     if [ -L "$dest" ]; then
         rm "$dest"
     elif [ -e "$dest" ]; then

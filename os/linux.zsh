@@ -14,14 +14,11 @@ export TERM_CONFIG="$HOME/.config/foot/foot.ini"
 export COMPOSITOR_CONFIG="$HOME/.config/sway/config"
 export COMPOSITOR_RELOAD="swaymsg reload"
 
-# zplug install location
-export ZPLUG_HOME="/usr/share/zplug"
+# Extra OMZ plugins consumed by shell/40-plugins.zsh
+typeset -ga OS_OMZ_PLUGINS=(command-not-found)
 
-# OS-specific aliases (ls flags differ)
-alias ls='ls --color=auto'
-alias ll='ls -lah --color=auto'
-
-# Extra zplug plugins, called from shell/40-plugins.zsh
-os_extra_plugins() {
-  zplug "ohmyzsh/ohmyzsh", use:"plugins/command-not-found/command-not-found.plugin.zsh"
+# OS-specific aliases applied AFTER OMZ libs (which redefine ll/ls)
+os_post_plugins() {
+  alias ls='ls --color=auto'
+  alias ll='ls -lah --color=auto'
 }

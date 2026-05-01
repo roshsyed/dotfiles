@@ -4,9 +4,6 @@ HISTSIZE=50000
 SAVEHIST=50000
 HISTFILE=~/.zsh_history
 
-autoload -Uz compinit
-compinit
-
 zshaddhistory() {
   emulate -L zsh
   local -a lines=("${(@f)1}")

@@ -16,15 +16,11 @@ export TERM_CONFIG="$HOME/.config/ghostty/config"
 export COMPOSITOR_CONFIG="$HOME/.aerospace.toml"
 export COMPOSITOR_RELOAD="aerospace reload-config"
 
-# zplug install location
-export ZPLUG_HOME="/opt/homebrew/opt/zplug"
+# Extra OMZ plugins consumed by shell/40-plugins.zsh
+typeset -ga OS_OMZ_PLUGINS=(macos brew)
 
-# OS-specific aliases (BSD ls)
-alias ls='ls -G'
-alias ll='ls -lahG'
-
-# Extra zplug plugins, called from shell/40-plugins.zsh
-os_extra_plugins() {
-  zplug "ohmyzsh/ohmyzsh", use:"plugins/macos/macos.plugin.zsh"
-  zplug "ohmyzsh/ohmyzsh", use:"plugins/brew/brew.plugin.zsh"
+# OS-specific aliases applied AFTER OMZ libs (which redefine ll/ls)
+os_post_plugins() {
+  alias ls='ls -G'
+  alias ll='ls -lahG'
 }

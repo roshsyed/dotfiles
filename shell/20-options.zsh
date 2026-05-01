@@ -6,3 +6,10 @@ HISTFILE=~/.zsh_history
 
 autoload -Uz compinit
 compinit
+
+zshaddhistory() {
+  emulate -L zsh
+  local -a lines=("${(@f)1}")
+  (( ${#lines} >= 5 || ${#1} > 1000 )) && return 1
+  return 0
+}

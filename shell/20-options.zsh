@@ -1,8 +1,10 @@
-setopt histignorealldups sharehistory auto_cd
+setopt histignorealldups sharehistory auto_cd extended_glob no_beep interactive_comments
 
 HISTSIZE=50000
 SAVEHIST=50000
-HISTFILE=~/.zsh_history
+HISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/zsh/history"
+mkdir -p "${HISTFILE:h}"
+[[ -f "$HOME/.zsh_history" && ! -f "$HISTFILE" ]] && mv "$HOME/.zsh_history" "$HISTFILE"
 
 zshaddhistory() {
   emulate -L zsh

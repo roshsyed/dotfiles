@@ -51,6 +51,7 @@ install.sh        # symlinks + .bak backup
 - `git` (for first-run plugin clones)
 - `nvim` (optional, falls back to `vi`)
 - `fzf` (used by `fcd` and the fzf plugin's keybindings; install via `apt install fzf` / `brew install fzf`)
+- macOS config assumes Apple Silicon Homebrew at `/opt/homebrew`
 
 ## Style
 

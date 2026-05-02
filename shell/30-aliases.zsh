@@ -22,6 +22,8 @@ alias zzz="$SYS_SLEEP"
 # Misc
 alias sc="source \$HOME/.zshrc"
 alias grep='grep --color=auto'
+# Single quotes intentional: zsh re-expands $EDITOR at alias invocation,
+# so changing $EDITOR later (e.g. in custom.zsh) takes effect immediately.
 alias vi='$EDITOR'
 alias vim='$EDITOR'
 alias info="info --vi-keys"

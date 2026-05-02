@@ -45,10 +45,10 @@ link_file "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
 PLATFORM_DIR="$DOTFILES_DIR/$PLATFORM"
 if [ -d "$PLATFORM_DIR" ]; then
     cd "$PLATFORM_DIR"
-    find . -type f | while read -r file; do
+    while IFS= read -r -d '' file; do
         rel="${file#./}"
         link_file "$PLATFORM_DIR/$rel" "$HOME/$rel"
-    done
+    done < <(find . -type f -print0)
 fi
 
 echo "Done."

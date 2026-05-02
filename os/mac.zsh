@@ -1,4 +1,5 @@
 # Homebrew (sets PATH, MANPATH, INFOPATH)
+# Apple Silicon path; Intel Macs would use /usr/local/bin/brew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # yubikey-agent SSH socket (only export if socket exists)

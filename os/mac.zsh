@@ -1,8 +1,10 @@
 # Homebrew (sets PATH, MANPATH, INFOPATH)
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# yubikey-agent SSH socket
-export SSH_AUTH_SOCK="$(brew --prefix)/var/run/yubikey-agent.sock"
+# yubikey-agent SSH socket (only export if socket exists)
+_yk_sock="$(brew --prefix)/var/run/yubikey-agent.sock"
+[[ -S "$_yk_sock" ]] && export SSH_AUTH_SOCK="$_yk_sock"
+unset _yk_sock
 
 # opencode (user-local mac install)
 export PATH="$HOME/.opencode/bin:$PATH"
@@ -24,3 +26,6 @@ os_post_plugins() {
   alias ls='ls -G'
   alias ll='ls -lahG'
 }
+
+# Memory in MB (vm_stat parser; mac-only)
+alias free='vm_stat | perl -ne '\''/page size of (\d+)/ and $size=$1; /Pages\s+([^:]+)[^\d]+(\d+)/ and printf("%-20s %.2f MB\n", "$1:", $2 * $size / 1048576);'\'''

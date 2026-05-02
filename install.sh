@@ -25,6 +25,10 @@ link_file() {
     if [ -L "$dest" ]; then
         rm "$dest"
     elif [ -e "$dest" ]; then
+        if [ -e "${dest}.bak" ]; then
+            echo "  ERROR: ${dest}.bak already exists. Resolve manually." >&2
+            exit 1
+        fi
         echo "  Backing up $dest -> ${dest}.bak"
         mv "$dest" "${dest}.bak"
     fi

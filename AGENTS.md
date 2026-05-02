@@ -41,7 +41,7 @@ install.sh        # symlinks + .bak backup
 - Aliases gate on env var presence: `[[ -n "$VAR" ]] && alias x="$VAR"`. OS file sets the var, `30-aliases.zsh` consumes.
 - Platform-specific OMZ plugins: append plugin name to `OS_OMZ_PLUGINS` array in `os/$OS.zsh`; consumed by `40-plugins.zsh`.
 - Aliases that must override OMZ defaults: define inside `os_post_plugins()` in `os/$OS.zsh`; called at end of `40-plugins.zsh`.
-- `install.sh` symlinks; pre-existing files moved to `*.bak` (existing `.bak` is overwritten).
+- `install.sh` symlinks; pre-existing files moved to `*.bak`. If a `.bak` already exists, install aborts (resolve manually).
 - Repo path resolved via `${(%):-%x}:A:h` so `~/.zshrc` symlink works.
 - `typeset -U PATH path` in `.zshrc` dedupes PATH; safe to prepend in multiple files.
 

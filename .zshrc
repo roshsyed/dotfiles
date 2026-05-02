@@ -1,7 +1,7 @@
 typeset -U PATH path  # deduplicates PATH automatically
 
 # Resolve repo dir from this file's location (handles symlink from ~/.zshrc)
-ZDOTDIR_REPO="${${(%):-%x}:A:h}"
+export ZDOTDIR_REPO="${${(%):-%x}:A:h}"
 
 case "$OSTYPE" in
   darwin*) DOTFILES_OS="mac"   ;;
@@ -19,6 +19,5 @@ done
 
 [[ -f "$HOME/.local/bin/env" ]] && . "$HOME/.local/bin/env"
 
-# === SCRATCH (refactor me) ===
-alias free='vm_stat | perl -ne '\''/page size of (\d+)/ and $size=$1; /Pages\s+([^:]+)[^\d]+(\d+)/ and printf("%-20s %.2f MB\n", "$1:", $2 * $size / 1048576);'\'''
-# === END SCRATCH ===
+# Local scratch overrides (gitignored)
+[[ -f "$ZDOTDIR_REPO/custom.zsh" ]] && source "$ZDOTDIR_REPO/custom.zsh"

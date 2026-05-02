@@ -18,6 +18,7 @@ os/
   mac.zsh
 linux/            # platform-only dotfiles, mirrored to $HOME by install.sh
 mac/              # (may not exist)
+custom.zsh        # gitignored scratch; sourced last from .zshrc
 install.sh        # symlinks + .bak backup
 ```
 
@@ -31,6 +32,7 @@ install.sh        # symlinks + .bak backup
 - Platform-only env/alias → `os/linux.zsh` or `os/mac.zsh`
 - Platform-only dotfile (e.g. `.config/foo/bar`) → drop in `linux/` or `mac/` tree, run `./install.sh`
 - New tool integration (mise, direnv, zoxide, etc.) → `shell/50-tools.zsh`, guard with `command -v`
+- Transient/dev/test scratch → `custom.zsh` (repo root, gitignored, sourced last). Promote stable bits out to `shell/` or `os/`.
 
 ## Conventions
 

@@ -1,12 +1,13 @@
 # Edit configs
-alias ec="$EDITOR \$HOME/.zshrc"
+alias ec="$EDITOR \$ZDOTDIR_REPO/custom.zsh"
+alias ecz="$EDITOR \$HOME/.zshrc"
 alias ect="$EDITOR \$TERM_CONFIG"
 alias ece="$EDITOR \$EDITOR_CONFIG"
 [[ -n "$COMPOSITOR_CONFIG" ]] && alias ecc="$EDITOR \$COMPOSITOR_CONFIG"
 [[ -n "$COMPOSITOR_RELOAD" ]] && alias rcc="$COMPOSITOR_RELOAD"
 alias ecg="$EDITOR \$HOME/.gitconfig"
 alias ecs="$EDITOR \$HOME/.ssh/config"
-alias eca="$EDITOR \$HOME/.config/dotfiles/AGENTS.md"
+alias eca="$EDITOR \$ZDOTDIR_REPO/AGENTS.md"
 alias ech="sudoedit /etc/hosts"
 
 # Start apps (only alias if OS provided the var)
@@ -27,7 +28,7 @@ alias info="info --vi-keys"
 alias nocomment='grep -Ev "^\s*(#|;|$)"'
 alias k="kubectl"
 alias zsh-plugins-update='for d in ${ZSH_PLUGIN_DIR:-$HOME/.local/share/zsh/plugins}/*/; do echo "Updating ${d:t}..."; git -C "$d" pull --quiet --ff-only || echo "  failed"; done'
-alias dotfiles="cd \$HOME/.config/dotfiles"
+alias dotfiles="cd \$ZDOTDIR_REPO"
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'

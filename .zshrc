@@ -20,4 +20,5 @@ done
 [[ -f "$HOME/.local/bin/env" ]] && . "$HOME/.local/bin/env"
 
 # === SCRATCH (refactor me) ===
+alias free='vm_stat | perl -ne '\''/page size of (\d+)/ and $size=$1; /Pages\s+([^:]+)[^\d]+(\d+)/ and printf("%-20s %.2f MB\n", "$1:", $2 * $size / 1048576);'\'''
 # === END SCRATCH ===

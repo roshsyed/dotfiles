@@ -15,7 +15,8 @@ run = 'move-node-to-workspace 1'
 
 [mode.main.binding]
 # Terminal (alt = super)
-alt-enter = '''exec-and-forget osascript -e 'tell application "Ghostty" to activate' -e 'tell application "Ghostty" to make new window' '''
+alt-enter = '''exec-and-forget osascript -e 'tell application "Ghostty" to make new window' '''
+alt-t = '''exec-and-forget ~/.config/aerospace/focus-or-launch-on-ws.sh com.mitchellh.ghostty 8 osascript -e 'tell application "Ghostty" to make new window' '''
 
 # Focus
 alt-h = 'focus left'

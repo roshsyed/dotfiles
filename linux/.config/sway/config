@@ -29,6 +29,8 @@ exec ddcutil setvcp 10 250
 # Basics:
     # Start a terminal
     bindsym $mod+Return exec $term
+    # Focus terminal on workspace 8, or launch one there
+    bindsym $mod+t exec ~/.config/sway/scripts/focus-or-launch-on-ws.sh foot 8
 
     # Kill focused window
     bindsym $mod+Shift+q kill

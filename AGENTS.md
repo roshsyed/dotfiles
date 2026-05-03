@@ -17,7 +17,7 @@ os/
   linux.zsh       # PATH, SYS_*, TERM_CONFIG, OS_OMZ_PLUGINS, os_post_plugins
   mac.zsh
 linux/            # platform-only dotfiles, mirrored to $HOME by install.sh
-mac/              # (may not exist)
+mac/              # macOS dotfiles (.aerospace.toml, .config/)
 custom.zsh        # gitignored scratch; sourced last from .zshrc
 install.sh        # symlinks + .bak backup
 ```

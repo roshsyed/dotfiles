@@ -53,6 +53,14 @@ install.sh        # symlinks + .bak backup
 - `fzf` (used by `fcd` and the fzf plugin's keybindings; install via `apt install fzf` / `brew install fzf`)
 - macOS config assumes Apple Silicon Homebrew at `/opt/homebrew`
 
+## Bootstrap (macOS)
+
+- `brew bundle --file=mac/Brewfile`
+- `./install.sh`
+- `mise install`
+
+Sync brew: `brew bundle dump --file=mac/Brewfile --force`. Prune mise-managed langs (python/ruby/node) after.
+
 ## Style
 
 - No emojis in files.

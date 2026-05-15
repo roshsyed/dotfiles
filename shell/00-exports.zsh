@@ -1,4 +1,5 @@
 export PATH="$HOME/.local/bin:$PATH"
+[[ -d "$HOME/workspace/config-mgmt/bin" ]] && export PATH="$HOME/workspace/config-mgmt/bin:$PATH"
 
 export LOCAL_CONFIG="$HOME/.config"
 export EDITOR_CONFIG="$LOCAL_CONFIG/nvim/lua"

@@ -37,6 +37,11 @@ link_file() {
     echo "  $dest -> $src"
 }
 
+# 0. Neovim config
+if [ -d "$DOTFILES_DIR/nvim-config" ]; then
+    link_file "$DOTFILES_DIR/nvim-config" "$HOME/.config/nvim"
+fi
+
 # 1. Common entry: ~/.zshrc -> repo .zshrc (sources shell/ + os/$PLATFORM.zsh)
 link_file "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
 
